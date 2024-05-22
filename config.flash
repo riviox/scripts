@@ -1,0 +1,4 @@
+name=scripts
+desc=riviox's scripts
+exec=sh install.sh
+deps=bemenu
