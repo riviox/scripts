@@ -1,7 +1,8 @@
 #!/bin/sh
+TERM=kitty
 
 [ ! -e "$HOME/.local/share/packageDB" ] && paru -Slq > "$HOME/.local/share/packageDB"
 
 result=$(cat "$HOME/.local/share/packageDB" | bemenu -l 10 -p "Install Package: ")
 
-[ -n "$result" ] && kitty -e paru -S "$result"
+[ -n "$result" ] && $TERM -e paru -S "$result"
