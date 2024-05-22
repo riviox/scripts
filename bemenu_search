@@ -2,7 +2,7 @@
 BROWSER=xdg-open
 
 # Prompt the user to select a search engine
-selectedEngine=$(printf "ArchWiki\nDuckDuckGo\nGoogle\nWikipedia\nYoutube" | bemenu -l 5 -p "Select a search engine: ")
+selectedEngine=$(printf "ArchWiki\nDuckDuckGo\nGoogle\nWikipedia\nYoutube\nGitHub" | bemenu -l 6 -p "Select a search engine: ")
 
 # Prompt the user to enter a search term
 [ -n "$selectedEngine" ] && searchVar=$(printf "" | bemenu -p "Enter a search term: ")
@@ -23,6 +23,9 @@ case "$selectedEngine" in
   ;;
   "Youtube") 
     [ -n "$searchVar" ] && $BROWSER "https://www.youtube.com/results?search_query=$searchVar"
+  ;;
+  "GitHub") 
+    [ -n "$searchVar" ] && $BROWSER "https://github.com/search?q=$searchVar&type=repositories"
   ;;
   *)
     exit
